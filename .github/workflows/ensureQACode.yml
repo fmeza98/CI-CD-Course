@@ -1,11 +1,9 @@
-name: Ensure dev code is QAed
-
+name: Ensure Dev Code is QAed
 on:
   push:
   pull_request:
     branches:
       - main
-
 jobs:
   test-ci-job:
     runs-on: ubuntu-latest
@@ -14,13 +12,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      
-      name: Install Dependencies
-      run: npm install
-
-      name: Test Lint
-      run: npm run lint
-
-      name: Test coverage
-      run: npm run test:coverage 
-    
+      - name: Install Dependencies
+        run: npm install
+      - name: Test Lint
+        run: npm run lint
+      - name: Test coverage
+        run: npm run test:coverage
